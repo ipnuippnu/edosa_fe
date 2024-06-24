@@ -1,75 +1,20 @@
-# Nuxt 3 Minimal Starter
+# Ekosistem Digital Organisasi (EDO) - FrontEnd
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+| Name         | Value       |
+| ------------ | ----------- |
+| Menuju Versi | 2.0.0       |
+| CodeName     | EDO-SA      |
+| Node Version | v20.15.0    |
+| Started at   | 2024-06-24  |
 
-## Setup
 
-Make sure to install the dependencies:
+## Deployment
 
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+Ready for Cloudflare-Pages deploy (with Wrangler)
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
 # yarn
-yarn dev
-
-# bun
-bun run dev
+yarn deploy
 ```
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+2024 - [PC IPNU-IPPNU Trenggalek](https://pelajartrenggalek.or.id) & [Isnu Nasrudin](https://fb.me/SHeSHeOrankZ)
