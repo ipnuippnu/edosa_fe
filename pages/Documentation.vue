@@ -1,3 +1,9 @@
+<script setup lang="ts">
+
+let a = await new Promise(resolve => setTimeout(resolve, 3000))
+
+</script>
+
 <template>
     <div class="card">
         <h3>Documentation</h3>
