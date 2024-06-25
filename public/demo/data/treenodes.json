@@ -1,10 +1,17 @@
 {
     "root": [
         {
+            "key": "0-0",
+            "label": "Work",
+            "data": "Work Folder",
+            "icon": "pi pi-fw pi-cog",
+            "suka": "ALISSA"
+        },
+        {
             "key": "0",
             "label": "Documents",
+            "selectable": false,
             "data": "Documents Folder",
-            "icon": "pi pi-fw pi-inbox",
             "children": [{
                 "key": "0-0",
                 "label": "Work",

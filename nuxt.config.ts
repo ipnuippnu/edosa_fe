@@ -4,14 +4,14 @@ import { fileURLToPath, URL } from 'node:url';
 export default defineNuxtConfig({
   app: {
       head: {
-          title: 'Sakai Vue',
           link: [
               {
                   id: 'theme-css',
                   rel: 'stylesheet',
                   type: 'text/css',
                   href: '/themes/aura-light-green/theme.css'
-              }
+              },
+              { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }
           ]
       }
   },
