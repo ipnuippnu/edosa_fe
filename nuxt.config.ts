@@ -44,11 +44,11 @@ export default defineNuxtConfig({
                 if(id.includes('node_modules')){
                   let split = id.toString().split('node_modules/')[1].split('/')
 
-                  if(!split[0].match(/^(@|nuxt|vue|primevue)/)) return 'vendor'
+                  if(!split[0].match(/^(@|vue|nuxt|primevue)/)) return 'vendor'
 
                 }
 
-                else if(id.match(/pages.*vue$/)) return 'page'
+                else if(id.match(/\.vue$/)) return 'page'
 
             }
 
