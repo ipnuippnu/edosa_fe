@@ -22,19 +22,16 @@ export default defineNuxtConfig({
   primevue: {
       options: { ripple: true },
       components: {
-          exclude: ['Editor']
+          // include: ['Button']
       }
   },
   alias: {
     '@': fileURLToPath(new URL('./src', import.meta.url)),
     '~': fileURLToPath(new URL('.', import.meta.url)),
   },
-  css: [
-    '@/assets/styles.scss',
-  ],
   devtools: { enabled: true },
   nitro: {
-    preset: "cloudflare-pages"
+    // preset: "cloudflare-pages"
   },
   vite: {
     build: {
@@ -42,49 +39,44 @@ export default defineNuxtConfig({
         output: {
           manualChunks(id) {
 
-            // console.log(id)
+            if(id.match(new RegExp("^" + __dirname, "g")))
+            {
+                if(id.includes('node_modules')){
+                  let split = id.toString().split('node_modules/')[1].split('/')
 
-            // if(id.includes('node_modules')) {
+                  if(!split[0].match(/^(@|nuxt|vue|primevue)/)) return 'vendor'
 
-            //   // return 'nodes';
+                }
 
-            //   let split = id.toString().split('node_modules/')[1].split('/')
-              
-            //   return split[0]
-            //   if(split[0] == 'primevue') {
-            //     // if(split[1].match(/(datatable|calendar)/)) return split[1]
+                else if(id.match(/pages.*vue$/)) return 'page'
 
-            //     // console.log(id)
-            //     // return split[0]
-            //     return split[1]
-            //   }
-              
-            //   return 'vendor'
-            // }
+            }
 
-            // if(!id.match(/^C\:\/laragon\/www\/edo_fe\//))
-            // {
-            //   return 'app'
-            // }
-            // else
-            // {
-            //   return 'app2'
-            // }
+            return
 
-            // return 'app'
 
-            // console.log()
-            // return 
+            if(id.includes('node_modules')) return 'vendor'
+            // if(id.match(new RegExp("^" + __dirname, "g"))) return 'app'
+            return
 
-              // if (id.includes('node_modules')) {
-                // console.log(id)
-                // let vendor = id.toString().split('node_modules/')[1].split('/')[0].toString();
+            if(id.match(new RegExp("^" + __dirname, "g")) && !id.includes(".scss"))
+            {
+                if(id.includes('node_modules')){
+                  let split = id.toString().split('node_modules/')[1].split('/')
 
-                // return vendor
-              // }
+                  if(split[0].match(/^(@vue|nuxt|prime)/)) return 'core'
+                  // else if(split[0].match(/^primevue/)) return 'primevue'
+                  else return 'core'
+                }
+
+                return 'core'
+
+            }
+
+            return 'core'
           }
         }
       }
     }
-  }
+  },
 })
