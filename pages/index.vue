@@ -1,30 +1,29 @@
+<script setup lang="ts">
 
-<template>
-    <div class="card flex justify-center">
-        Selamat Malam Kak
-        <TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" class="md:w-80 w-full">
-            <template #value="{ value }">
-                {{ value.map(a => a.label).join(",") }}
-            </template>
-        </TreeSelect>
-    </div>
-</template>
+import { usePercobaanStore } from "~/stores/percobaan"
+const percobaan = usePercobaanStore()
 
-<script setup>
-import { ref, onMounted } from 'vue';
-
-const nodes = ref(null);
-const selectedValue = ref(null);
-
-useHead({
-    title: "Beranda"
-})
+let {count, name, fullName, increment, $reset} = usePercobaanStore()
+let a = useLocalStorage("Alissa", 0)
 
 onMounted(() => {
-    
-    fetch('/demo/data/treenodes.json')
-            .then((res) => res.json())
-            .then((d) => d.root)
-            .then((data) => (nodes.value = data))
-});
+    setInterval(() => {
+
+        a.value = new Date()
+
+    }, 1000)
+})
+
 </script>
+
+<template>
+
+<span>{{ percobaan.$state }}</span>
+<span>{{ percobaan.fullName }}</span>
+<span>{{ count }}</span>
+<span>{{ a }}</span>
+
+<Button @click="increment">Tambah</Button>
+<Button @click="$reset">Reset</Button>
+
+</template>
